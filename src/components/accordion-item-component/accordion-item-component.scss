@@ -1,0 +1,43 @@
+$color-principal: #77c0f1;
+$color-blue: #22AAEE;
+$color-white: #FFFFFF;
+$color-gray-light: #e0e0e0;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+:host {
+  .accordion {
+    &__button {
+      width: 100%;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: left;
+      color: $color-white;
+      background-color: $color-principal;
+      border: 1px solid $color-blue;
+    }
+
+    &__content {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: $color-gray-light;
+      text-align: justify;
+      line-height: 1.5rem;
+      position: relative;
+  
+      &::before {
+        content: '';
+        height: 0;
+        width: 0;
+        border: 0.5rem solid transparent;
+        border-bottom: 0.5rem solid $color-gray-light;
+        position: absolute;
+        top: -1rem;
+        left: 1rem;
+      }
+    }
+  }
+}

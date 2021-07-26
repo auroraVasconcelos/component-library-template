@@ -1,0 +1,10 @@
+:host {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+
+    .accordion {
+        &__item--visible {
+            display: block;
+        }
+    }
+}

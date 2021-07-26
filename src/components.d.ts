@@ -6,34 +6,78 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AccordionComponent {
+    }
+    interface AccordionItemComponent {
+        "buttonLabel": string;
+        "itemContent": string;
+    }
     interface ExampleComponent {
         "exampleProp": string;
     }
+    interface HeadlineComponent {
+    }
 }
 declare global {
+    interface HTMLAccordionComponentElement extends Components.AccordionComponent, HTMLStencilElement {
+    }
+    var HTMLAccordionComponentElement: {
+        prototype: HTMLAccordionComponentElement;
+        new (): HTMLAccordionComponentElement;
+    };
+    interface HTMLAccordionItemComponentElement extends Components.AccordionItemComponent, HTMLStencilElement {
+    }
+    var HTMLAccordionItemComponentElement: {
+        prototype: HTMLAccordionItemComponentElement;
+        new (): HTMLAccordionItemComponentElement;
+    };
     interface HTMLExampleComponentElement extends Components.ExampleComponent, HTMLStencilElement {
     }
     var HTMLExampleComponentElement: {
         prototype: HTMLExampleComponentElement;
         new (): HTMLExampleComponentElement;
     };
+    interface HTMLHeadlineComponentElement extends Components.HeadlineComponent, HTMLStencilElement {
+    }
+    var HTMLHeadlineComponentElement: {
+        prototype: HTMLHeadlineComponentElement;
+        new (): HTMLHeadlineComponentElement;
+    };
     interface HTMLElementTagNameMap {
+        "accordion-component": HTMLAccordionComponentElement;
+        "accordion-item-component": HTMLAccordionItemComponentElement;
         "example-component": HTMLExampleComponentElement;
+        "headline-component": HTMLHeadlineComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface AccordionComponent {
+    }
+    interface AccordionItemComponent {
+        "buttonLabel"?: string;
+        "itemContent"?: string;
+        "onAccordionItemToggle"?: (event: CustomEvent<AccordionItemComponent>) => void;
+    }
     interface ExampleComponent {
         "exampleProp"?: string;
     }
+    interface HeadlineComponent {
+    }
     interface IntrinsicElements {
+        "accordion-component": AccordionComponent;
+        "accordion-item-component": AccordionItemComponent;
         "example-component": ExampleComponent;
+        "headline-component": HeadlineComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "accordion-component": LocalJSX.AccordionComponent & JSXBase.HTMLAttributes<HTMLAccordionComponentElement>;
+            "accordion-item-component": LocalJSX.AccordionItemComponent & JSXBase.HTMLAttributes<HTMLAccordionItemComponentElement>;
             "example-component": LocalJSX.ExampleComponent & JSXBase.HTMLAttributes<HTMLExampleComponentElement>;
+            "headline-component": LocalJSX.HeadlineComponent & JSXBase.HTMLAttributes<HTMLHeadlineComponentElement>;
         }
     }
 }
