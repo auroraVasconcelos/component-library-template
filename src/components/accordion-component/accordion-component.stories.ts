@@ -25,6 +25,11 @@ export const empty = (): string => `
     <accordion-item-component
       button-label="title 2"
       item-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quod cum maiores sint accusantium asperiores, architecto ducimus odio, rerum placeat tempore esse eaque, nulla earum. Animi, ipsum! Sapiente, vel corporis."
-  ></accordion-item-component>
+    ></accordion-item-component>
+
+    <accordion-item-component
+      button-label="title 3"
+      item-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quod cum maiores sint accusantium asperiores, architecto ducimus odio, rerum placeat tempore esse eaque, nulla earum. Animi, ipsum! Sapiente, vel corporis."
+    ></accordion-item-component>
   </accordion-component>
 `;

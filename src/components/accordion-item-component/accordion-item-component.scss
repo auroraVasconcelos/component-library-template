@@ -42,7 +42,7 @@ $color-gray-light: #e0e0e0;
   }
 }
 
-:host(.visible) {
+:host(.accordion-item--visible) {
   .accordion__content {
     display: block;
   }
