@@ -1,4 +1,4 @@
-import { Component, h, State, Listen } from '@stencil/core';
+import { Component, h, State, Listen} from '@stencil/core';
 import { AccordionItemComponent } from '../accordion-item-component/accordion-item-component';
 
 @Component({
@@ -9,19 +9,19 @@ import { AccordionItemComponent } from '../accordion-item-component/accordion-it
 export class AccordionComponent {
   @State() toggleState: boolean = false;
 
+  private Elements = Array.from(document.querySelectorAll('accordion-item-component'));
+
   @Listen('accordionItemToggle')
   public handleToggle(event: CustomEvent<AccordionItemComponent>): void {
-    console.log(event);
-    let activeElement = event.target;
-    console.log(activeElement);
-    
-}
+    const { target } = event as any;
+    if(target.classList.contains('visible')) {
+      target.classList.remove('visible');
+      return;
+    }
 
-  public toggleVisibility(): void {
-    console.log('1',this.toggleState);
-    this.toggleState = !this.toggleState;
-    console.log(this.toggleState);
-  }
+    this.Elements.forEach(element => { element.classList.remove('visible') });
+    target.classList.add('visible');
+}
 
   render() {
     return (

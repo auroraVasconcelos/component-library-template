@@ -12,6 +12,7 @@ $color-gray-light: #e0e0e0;
     &__button {
       width: 100%;
       padding: 1rem;
+      margin: 1rem 0;
       cursor: pointer;
       text-align: left;
       color: $color-white;
@@ -21,7 +22,6 @@ $color-gray-light: #e0e0e0;
 
     &__content {
       display: none;
-      margin-top: 1rem;
       padding: 1rem;
       background-color: $color-gray-light;
       text-align: justify;
@@ -39,5 +39,11 @@ $color-gray-light: #e0e0e0;
         left: 1rem;
       }
     }
+  }
+}
+
+:host(.visible) {
+  .accordion__content {
+    display: block;
   }
 }
