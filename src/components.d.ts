@@ -10,6 +10,7 @@ export namespace Components {
     }
     interface AccordionItemComponent {
         "buttonLabel": string;
+        "buttonLabel_hover": string;
         "itemContent": string;
     }
     interface ExampleComponent {
@@ -55,6 +56,7 @@ declare namespace LocalJSX {
     }
     interface AccordionItemComponent {
         "buttonLabel"?: string;
+        "buttonLabel_hover"?: string;
         "itemContent"?: string;
         "onAccordionItemToggle"?: (event: CustomEvent<AccordionItemComponent>) => void;
     }

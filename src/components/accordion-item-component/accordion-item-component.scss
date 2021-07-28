@@ -3,31 +3,66 @@ $color-blue: #22AAEE;
 $color-white: #FFFFFF;
 $color-gray-light: #e0e0e0;
 
+$margin-normal: 24px;
+
 * {
   margin: 0;
   padding: 0;
 }
+
 :host {
   .accordion {
     &__button {
       width: 100%;
-      padding: 1rem;
-      margin: 1rem 0;
+      padding: $margin-normal;
+      margin: $margin-normal 0;
       cursor: pointer;
       text-align: left;
       color: $color-white;
       background-color: $color-principal;
       border: 1px solid $color-blue;
+      position: relative;
+
+      &--before {
+        display: inline;
+      }
+      &--hover {
+        display: none;
+      }
+
+      &:hover {
+        .accordion__button--before {
+          display: none;
+        }
+        .accordion__button--hover {
+          display: inline;
+        }
+      }
+
+      // &:hover {
+      //   &::before {
+      //     content: 'Are you sure?';
+      //     background-color: $color-principal;
+      //     position: absolute;
+      //     left: $margin-normal;
+      //     top: 50%;
+      //     transform: translateY(-50%);
+      //   }
+      // }
     }
 
     &__content {
-      display: none;
-      padding: 1rem;
       background-color: $color-gray-light;
       text-align: justify;
       line-height: 1.5rem;
       position: relative;
-  
+      padding: 0 $margin-normal;
+
+      height: 0;
+      overflow: hidden;
+      overflow-y: auto;
+      transition: 0.8s;
+
       &::before {
         content: '';
         height: 0;
@@ -44,6 +79,8 @@ $color-gray-light: #e0e0e0;
 
 :host(.accordion-item--visible) {
   .accordion__content {
-    display: block;
+    height: fit-content;
+    padding: $margin-normal;
+    overflow:visible;
   }
 }

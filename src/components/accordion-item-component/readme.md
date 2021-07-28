@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type     | Default     |
-| ------------- | -------------- | ----------- | -------- | ----------- |
-| `buttonLabel` | `button-label` |             | `string` | `undefined` |
-| `itemContent` | `item-content` |             | `string` | `undefined` |
+| Property            | Attribute            | Description | Type     | Default           |
+| ------------------- | -------------------- | ----------- | -------- | ----------------- |
+| `buttonLabel`       | `button-label`       |             | `string` | `undefined`       |
+| `buttonLabel_hover` | `button-label_hover` |             | `string` | `'Are you sure?'` |
+| `itemContent`       | `item-content`       |             | `string` | `undefined`       |
 
 
 ## Events

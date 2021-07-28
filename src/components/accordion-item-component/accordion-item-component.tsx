@@ -8,6 +8,8 @@ import { Component, h, Prop, Event, EventEmitter} from '@stencil/core';
 export class AccordionItemComponent {  
   @Prop() buttonLabel: string;
 
+  @Prop() buttonLabel_hover: string='Are you sure?';
+
   @Prop() itemContent: string;
 
   @Event() accordionItemToggle: EventEmitter<AccordionItemComponent>;
@@ -24,7 +26,8 @@ export class AccordionItemComponent {
           type="button"
           onClick={this.handleClick}
         >
-          {this.buttonLabel}
+          <p class='accordion__button--before'>{this.buttonLabel}</p>
+          <p class='accordion__button--hover'>{this.buttonLabel_hover}</p>
         </button>
         <div class="accordion__content" >
           <p>{this.itemContent}</p>
@@ -36,5 +39,4 @@ export class AccordionItemComponent {
   private handleClick(): void {
     this.accordionItemToggle.emit(this);
   }
-
 }
