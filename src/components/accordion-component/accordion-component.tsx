@@ -26,6 +26,10 @@ export class AccordionComponent {
     clickedItem.classList.add(this.visible);
 }
 
+  componentWillLoad() {
+    this.fetchData();
+  }
+
   render() {
     return (
       <section class="accordion">
@@ -34,4 +38,24 @@ export class AccordionComponent {
     );
   }
 
+  private fetchedData(data) {
+    console.log(data);
+    this.allItems.forEach((item: HTMLAccordionItemComponentElement, index: number) => {
+      item.buttonLabel = data[index].code;
+      item.itemContent = data[index].description;
+    });
+  }
+
+  private fetchData() {
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+    .then( resp => 
+      resp.json()
+    )
+    .then(content => {
+      this.fetchedData(Object.values(content.bpi));
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
 }
