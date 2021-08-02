@@ -26,8 +26,9 @@ export class AccordionItemComponent {
           type="button"
           onClick={this.handleClick}
         >
-          <p class='accordion__button--before'>{this.buttonLabel}</p>
-          <p class='accordion__button--hover'>{this.buttonLabel_hover}</p>
+          {/* <p class='accordion__button--before'>{this.buttonLabel}</p>
+          <p class='accordion__button--hover'>{this.buttonLabel_hover}</p> */}
+          {this.buttonLabel}
         </button>
         <div class="accordion__content" >
           <p>{this.itemContent}</p>
