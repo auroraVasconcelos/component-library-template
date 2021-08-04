@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter} from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Element} from '@stencil/core';
 
 @Component({
   tag: 'accordion-item-component',
@@ -12,7 +12,9 @@ export class AccordionItemComponent {
 
   @Prop() itemContent: string;
 
-  @Event() accordionItemToggle: EventEmitter<AccordionItemComponent>;
+  @Element() element: HTMLAccordionItemComponentElement;
+
+  @Event({bubbles:true, composed:true}) accordionItemToggle: EventEmitter<HTMLAccordionItemComponentElement>;
 
   constructor() {
     this.handleClick = this.handleClick.bind(this);
@@ -38,6 +40,6 @@ export class AccordionItemComponent {
   }
 
   private handleClick(): void {
-    this.accordionItemToggle.emit(this);
+    this.accordionItemToggle.emit(this.element);
   }
 }

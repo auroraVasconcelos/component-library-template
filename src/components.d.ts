@@ -58,7 +58,7 @@ declare namespace LocalJSX {
         "buttonLabel"?: string;
         "buttonLabel_hover"?: string;
         "itemContent"?: string;
-        "onAccordionItemToggle"?: (event: CustomEvent<AccordionItemComponent>) => void;
+        "onAccordionItemToggle"?: (event: CustomEvent<HTMLAccordionItemComponentElement>) => void;
     }
     interface ExampleComponent {
         "exampleProp"?: string;

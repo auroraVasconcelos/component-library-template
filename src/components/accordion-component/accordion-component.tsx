@@ -1,5 +1,4 @@
 import { Component, h, Listen, State} from '@stencil/core';
-import { AccordionItemComponent } from '../accordion-item-component/accordion-item-component';
 
 @Component({
   tag: 'accordion-component',
@@ -16,8 +15,8 @@ export class AccordionComponent {
   private visible = 'accordion-item--visible';
 
   @Listen('accordionItemToggle')
-  public handleToggle(event: CustomEvent<AccordionItemComponent>): void {
-    const { target: clickedItem } = event as any;
+  public handleToggle(event: CustomEvent<HTMLAccordionItemComponentElement>): void {
+    const { detail: clickedItem } = event as any;
 
     if(clickedItem.classList.contains(this.visible)) {
       clickedItem.classList.remove(this.visible);
@@ -35,10 +34,10 @@ export class AccordionComponent {
   render() {
     return (
       <section class="accordion">
-        {this.fetchedData?.map((item) => (
+        {this.fetchedData?.map((item: any) => (
           <accordion-item-component
             buttonLabel = {item.code}
-            itemContent = {item.description} 
+            itemContent = {item.description}
           >
           </accordion-item-component>
         ))} 
@@ -61,8 +60,7 @@ export class AccordionComponent {
     )
     .then(content => {
       //this.fetchedData(Object.values(content.bpi));
-      this.fetchedData = Object.values(content.bpi) as any;
-      //console.log(this.fetchedData);
+      this.fetchedData = Object.values(content.bpi);
     })
     .catch(error => {
       console.error(error);

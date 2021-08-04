@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event                 | Description | Type                                  |
-| --------------------- | ----------- | ------------------------------------- |
-| `accordionItemToggle` |             | `CustomEvent<AccordionItemComponent>` |
+| Event                 | Description | Type                                             |
+| --------------------- | ----------- | ------------------------------------------------ |
+| `accordionItemToggle` |             | `CustomEvent<HTMLAccordionItemComponentElement>` |
 
 
 ## Dependencies
